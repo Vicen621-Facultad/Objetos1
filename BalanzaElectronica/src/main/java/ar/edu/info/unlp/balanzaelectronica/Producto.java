@@ -6,6 +6,7 @@ public class Producto {
     private String descripcion;
 
     public Producto() {
+        this.descripcion = "";
     }
 
     public double getPrecio() {

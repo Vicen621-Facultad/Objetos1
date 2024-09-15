@@ -206,3 +206,5 @@ dist
 
 *.db
 .DS_store
+
+**/.idea
