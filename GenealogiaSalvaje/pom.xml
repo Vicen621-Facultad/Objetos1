@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.vicen621</groupId>
-    <artifactId>RedAlumbrado</artifactId>
+    <artifactId>GenealoiaSalvaje</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>RedAlumbrado</name>
+    <name>GenealogiaSalvaje</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

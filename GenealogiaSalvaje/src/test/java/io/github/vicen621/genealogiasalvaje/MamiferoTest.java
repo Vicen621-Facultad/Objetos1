@@ -1,13 +1,16 @@
-package ar.edu.unlp.info.oo1.ejercicio5;
+package io.github.vicen621.genealogiasalvaje;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import io.github.vicen621.genealogiasalvaje.Mamifero;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+//TODO: Fijarse si no están mal hechos los tests porque
+// los padres del ultimo hijo deberian asignarse al final de todo
 public class MamiferoTest {
 	private Mamifero nala;
 	private Mamifero melquiades;
