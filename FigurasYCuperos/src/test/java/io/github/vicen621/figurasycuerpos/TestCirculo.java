@@ -16,6 +16,13 @@ public class TestCirculo {
 	}
 
 	@Test
+	public void testSetDiametro() {
+		circulo.setDiametro(6);
+		assertEquals(6, circulo.getDiametro());
+		assertEquals(3, circulo.getRadio());
+	}
+
+	@Test
 	public void testDiametro() {
 		assertEquals(6, circulo.getDiametro());
 	}
