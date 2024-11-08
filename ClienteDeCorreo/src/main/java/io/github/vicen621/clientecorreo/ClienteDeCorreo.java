@@ -33,6 +33,16 @@ public class ClienteDeCorreo {
                 .sum();
     }
 
+    public int cantEmailsCarpeta(Carpeta carpeta) {
+        return carpeta.cantEmails();
+    }
+
+    public int cantEmails() {
+        return this.carpetas.stream()
+                .mapToInt(Carpeta::cantEmails)
+                .sum();
+    }
+
     public Carpeta getInbox() {
         return inbox;
     }

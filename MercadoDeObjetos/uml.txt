@@ -1,0 +1,61 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+interface FormaDeEnvio << interface >> {
+  + calcularEnvio(double): double
+}
+
+interface FormaDePago << interface >> {
+  + calcularTotal(double): double
+}
+
+class Pedido {
+  + << create >> Pedido(FormaDePago, FormaDeEnvio, Producto, int, double)
+  - formaPago: FormaDePago
+  - formaEnvio: FormaDeEnvio
+  - cantidad: int
+  - producto: Producto
+  - kilometros: double
+  + precioProducto(): double
+  + costoTotal(): double
+  + getCantidad(): int
+  + getProducto(): Producto
+  + getFormaPago(): FormaDePago
+  + getFormaEnvio(): FormaDeEnvio
+  + getKilometros(): double
+}
+class Producto {
+  + << create >> Producto(String, String, double, int)
+  - nombre: String
+  - cantidad: int
+  - categoria: String
+  - precio: double
+  + getNombre(): String
+  + getCategoria(): String
+  + getCantidad(): int
+  + hayDisponible(int): boolean
+  + setCantidad(int): void
+  + getPrecioTotal(): double
+  + getPrecio(): double
+  + decrementarCantidad(int): void
+}
+class Usuario {
+  + << create >> Usuario(String, String)
+  - nombre: String
+  - direccion: String
+  + crearPedido(Usuario, FormaDePago, FormaDeEnvio, Producto, int): boolean
+  + cantidadPorCategoria(): Map<String, Long>
+  + agregarProducto(Producto): void
+  + eliminarProducto(Producto): void
+  + getNombre(): String
+  + getDireccion(): String
+}
+
+Pedido                 "1" *--> "formaEnvio\n1" FormaDeEnvio
+Pedido                 "1" *--> "formaPago\n1" FormaDePago
+Pedido                 "1" *--> "producto\n1" Producto
+Usuario                     ..>  Pedido                     : "«create»"
+Usuario                "1" *--> "pedidos\n*" Pedido
+Usuario                "1" *--> "productos\n*" Producto
+@enduml

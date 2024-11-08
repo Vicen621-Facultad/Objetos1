@@ -40,4 +40,8 @@ public class Carpeta {
         this.eliminarEmail(email);
         destino.agregarEmail(email);
     }
+
+    public int cantEmails() {
+        return this.emails.size();
+    }
 }
