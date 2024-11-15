@@ -26,18 +26,19 @@ public class Viaje {
         return this.pasajeros.size();
     }
 
-    public void registrarPasajero(Usuario usuario) {
+    public boolean registrarPasajero(Usuario usuario) {
         if (getCantidadPasajeros() >= this.vehiculo.getCapacidad())
-            return;
+            return false;
 
         if (LocalDate.now().isAfter(fecha.minusDays(2)))
-            return;
+            return false;
 
         if (usuario.tieneSaldoRojo())
-            return;
+            return false;
 
         this.pasajeros.add(usuario);
         usuario.agregarViaje(this);
+        return true;
     }
 
     public void procesarViaje() {

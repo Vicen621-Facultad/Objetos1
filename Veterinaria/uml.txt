@@ -1,0 +1,42 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+class Veterinario {
+  -nombre: String
+  -fechaIngreso: LocalDate
+  -honorariosPorAtencion: real
+}
+
+class Mascota {
+  -nombre: String
+  -fechaNacimiento: LocalDate
+  -especie: String
+  +agregarServicio(Servicio)
+  +calcularRecaudacion(LocalDate): Real
+}
+
+class Servicio<<abstract>> {
+  +{abstract} calcularCosto(): Real
+}
+
+class ConsultaMedica extends Servicio {
+  -fecha: LocalDate
+  +calcularCosto(): Real
+}
+
+class Vacunacion extends Servicio {
+  -vacuna: String
+  -costoVacuna: Real
+  +calcularCosto(): Real
+}
+
+class Guarderia extends Servicio {
+  -cantDias: integer
+  +calcularCosto(): Real
+}
+
+Mascota --> Servicio: 1..* servicios
+ConsultaMedica --> Veterinario
+Vacunacion --> Veterinario
+@enduml
